@@ -85,4 +85,17 @@ mod tests {
         assert_eq!(iter.next(), Some(&2));
         assert_eq!(iter.next(), Some(&1));
     }
+
+    #[test]
+    fn iter_mut() {
+        let mut list = second::List::new();
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        let mut iter = list.iter_mut();
+        while let Some(v) = iter.next() {
+          println!("{}", v);
+        }
+    }
 }
