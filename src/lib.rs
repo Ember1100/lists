@@ -1,6 +1,7 @@
 pub mod first;
 pub mod my;
 pub mod second;
+pub mod third;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
@@ -97,5 +98,28 @@ mod tests {
         while let Some(v) = iter.next() {
           println!("{}", v);
         }
+    }
+
+    #[test]
+    fn third() {
+        let list = third::List::new();
+        assert_eq!(list.head(), None);
+
+        let list = list.prepend(1).prepend(2).prepend(3);
+        assert_eq!(list.head(), Some(&3));
+
+        let list = list.tail();
+        assert_eq!(list.head(), Some(&2));
+
+        let list = list.tail();
+        assert_eq!(list.head(), Some(&1));
+
+        let list = list.tail();
+        assert_eq!(list.head(), None);
+
+        // Make sure empty tail works
+        let list = list.tail();
+        assert_eq!(list.head(), None);
+
     }
 }
