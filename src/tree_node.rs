@@ -1,5 +1,4 @@
 #[derive(Debug,PartialEq, Eq)]
-
 pub struct TreeNode<T> {
     val: T,
     next: Option<Box<TreeNode<T>>>,
